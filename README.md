@@ -1,4 +1,5 @@
 # UEFS Netra — API RESTful
+
 API RESTful desenvolvida como parte do teste técnico para a vaga de Engenheiro de Software no projeto **UEFS - NETRA**.  
 Sistema completo para **gerenciamento de usuários, posts e tags**, com arquitetura em camadas, testes automatizados e ambiente multi-contêiner Docker.
 
@@ -34,8 +35,8 @@ O projeto segue uma **arquitetura em camadas**, organizada para facilitar manute
 
 ### Pré-requisitos
 
-- [Docker](https://docs.docker.com/get-docker/) e [Docker Compose](https://docs.docker.com/compose/install/)
-- [Git](https://git-scm.com/) para clonar o repositório
+- [Docker](https://docs.docker.com/get-docker/) e [Docker Compose](https://docs.docker.com/compose/install/)  
+- [Git](https://git-scm.com/) para clonar o repositório  
 - Pelo menos **4 GB de RAM** disponível
 
 ### Passos para Configuração do Ambiente
@@ -45,6 +46,56 @@ O projeto segue uma **arquitetura em camadas**, organizada para facilitar manute
 git clone https://github.com/lefundes/test-devs-uefs.git
 cd test-devs-uefs
 
+````markdown
+# UEFS Netra — API RESTful
+
+API RESTful desenvolvida como parte do teste técnico para a vaga de Engenheiro de Software no projeto **UEFS - NETRA**.  
+Sistema completo para **gerenciamento de usuários, posts e tags**, com arquitetura em camadas, testes automatizados e ambiente multi-contêiner Docker.
+
+## Arquitetura do Projeto
+
+O projeto segue uma **arquitetura em camadas**, organizada para facilitar manutenção, escalabilidade e testes:
+
+- **Controllers** — Recebem requisições e retornam respostas HTTP.  
+- **Services** — Contêm a lógica de negócio.  
+- **Repositories** — Acesso a dados, implementando o *Repository Pattern*.  
+- **Models** — Entidades do domínio.  
+- **Transformers** — Transformam dados para resposta da API.
+
+## Tecnologias Utilizadas
+
+- **Linguagem:** PHP 8.4.12  
+- **Framework:** Laravel Framework 12.34.0  
+- **Banco de Dados:** PostgreSQL  
+- **Cache:** Redis  
+- **Servidor Web:** Nginx  
+- **Containerização:** Docker & Docker Compose  
+- **Transformação de Dados:** Fractal  
+- **Testes Automatizados:** PHPUnit
+
+## Estrutura do Banco de Dados
+
+- `users` — Tabela de usuários  
+- `posts` — Tabela de posts  
+- `tags` — Tabela de tags  
+- `post_tag` — Relacionamento muitos-para-muitos entre posts e tags
+
+## Início Rápido
+
+### Pré-requisitos
+
+- [Docker](https://docs.docker.com/get-docker/) e [Docker Compose](https://docs.docker.com/compose/install/)  
+- [Git](https://git-scm.com/) para clonar o repositório  
+- Pelo menos **4 GB de RAM** disponível
+
+### Passos para Configuração do Ambiente
+
+#### 1. Clone e Acesse o Projeto
+```bash
+git clone https://github.com/lefundes/test-devs-uefs.git
+cd test-devs-uefs
+````
+
 #### 2. Build e Execução dos Containers
 
 ```bash
@@ -53,23 +104,37 @@ docker rm -f $(docker ps -aq)
 docker rm -f uefs-netra-nginx
 docker-compose down --remove-orphans
 docker-compose up -d
+```
 
 #### 3. Instalação e Configuração da Aplicação
+
+```bash
 docker-compose exec app composer install
-##### 3.1. Configurar .env
+```
+
+##### 3.1 Configurar `.env`
+
+```bash
 cp .env.example .env
-##### 3.2. Gerar API Key
+```
+
+##### 3.2 Gerar API Key
+
+```bash
 docker-compose exec app php artisan key:generate
-##### 3.3. Executar as Migrations
+```
+
+##### 3.3 Executar as Migrations
+
+```bash
 docker-compose exec app php artisan migrate
+```
 
-#### 4. Verificação
-
-Verifique os containers ativos:
+#### 4. Verificação dos Containers
 
 ```bash
 docker-compose ps
-
+```
 
 ## URL Inicial e Teste da Aplicação
 
@@ -83,9 +148,8 @@ Observação: A documentação completa da API estará acessível após a config
 
 ## Configuração de Testes Automatizados
 
-Importante:
 O Laravel, por padrão, executa os testes com **SQLite**, porém esta aplicação utiliza **PostgreSQL** com **SEQUENCES explícitas** nas migrations, o que não é suportado pelo SQLite.
-Por isso, os testes estão configurados para rodar diretamente em PostgreSQL.
+Portanto, os testes estão configurados para rodar diretamente em PostgreSQL.
 
 ### Configuração do Banco de Testes
 
