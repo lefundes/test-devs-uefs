@@ -77,7 +77,7 @@ Após a configuração, a aplicação estará disponível em:
 http://localhost:8000
 ```
 
-Observação: A documentação completa da API será acessível após a configuração básica do ambiente.
+Observação: A documentação completa da API estará acessível após a configuração básica do ambiente.
 
 ## Configuração de Testes Automatizados
 
