@@ -7,8 +7,8 @@
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-informational.svg)](https://www.postgresql.org/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
-> **API RESTful** desenvolvida como parte do teste técnico para a vaga de Engenheiro de Software no projeto **UEFS - NETRA**.  
-> Sistema completo para **gerenciamento de usuários, posts e tags**, com arquitetura em camadas, testes automatizados e ambiente multi-contêiner Docker.
+**API RESTful** desenvolvida como parte do teste técnico para a vaga de Engenheiro de Software no projeto **UEFS - NETRA**.  
+Sistema completo para **gerenciamento de usuários, posts e tags**, com arquitetura em camadas, testes automatizados e ambiente multi-contêiner Docker.
 
 ---
 
