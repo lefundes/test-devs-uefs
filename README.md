@@ -46,7 +46,6 @@ Transformers — Transformam dados para resposta da API.
 git clone https://github.com/lefundes/test-devs-uefs.git
 cd test-devs-uefs
 
-````markdown
 # UEFS Netra — API RESTful
 
 API RESTful desenvolvida como parte do teste técnico para a vaga de Engenheiro de Software no projeto **UEFS - NETRA**.  
