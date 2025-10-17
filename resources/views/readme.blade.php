@@ -181,8 +181,8 @@
                             <div>
                                 <h4 class="font-semibold">Clone e Acesso</h4>
                                 <div class="code-block mt-2">
-                                    <code class="text-green-400">git clone [repositorio]</code><br>
-                                    <code class="text-green-400">cd netra-test-senior</code>
+                                    <code class="text-green-400">git clone https://github.com/lefundes/test-devs-uefs.git</code><br>
+                                    <code class="text-green-400">cd test-devs-uefs</code>
                                 </div>
                             </div>
                         </div>
@@ -192,8 +192,15 @@
                             <div>
                                 <h4 class="font-semibold">Build e Execução</h4>
                                 <div class="code-block mt-2">
-                                    <code class="text-green-400">docker-compose build --no-cache</code><br>
-                                    <code class="text-green-400">docker-compose up -d</code>
+                                    <code class="text-green-400">
+                                        docker-compose build --no-cache<br>
+                                        docker rm -f $(docker ps -aq)<br>
+                                        docker-compose down<br>
+                                        docker volume rm test-devs-uefs_postgres_data<br>
+                                        docker rm -f uefs-netra-nginx<br>
+                                        docker-compose down --remove-orphans<br>
+                                        docker-compose up -d
+                                    </code>
                                 </div>
                             </div>
                         </div>
@@ -204,6 +211,7 @@
                                 <h4 class="font-semibold">Configuração da Aplicação</h4>
                                 <div class="code-block mt-2">
                                     <code class="text-green-400">docker-compose exec app composer install</code><br>
+                                    <code class="text-green-400">cp .env.example .env</code><br>
                                     <code class="text-green-400">docker-compose exec app php artisan key:generate</code><br>
                                     <code class="text-green-400">docker-compose exec app php artisan migrate</code>
                                 </div>
@@ -229,15 +237,7 @@
                             <span>Testar API:</span>
                         </div>
                         <div class="code-block">
-                            <code class="text-green-400">curl http://localhost:8000/api/v1/users</code>
-                        </div>
-
-                        <div class="flex items-center space-x-3 p-4 bg-purple-50 rounded-lg">
-                            <i class="fas fa-vial text-purple-500"></i>
-                            <span>Executar testes:</span>
-                        </div>
-                        <div class="code-block">
-                            <code class="text-green-400">docker-compose exec app php artisan test</code>
+                            <code class="text-green-400">curl http://localhost:8000</code>
                         </div>
                     </div>
                 </div>
@@ -319,20 +319,7 @@
                             <div>
                                 <h4 class="font-semibold">Executar Todos os Testes</h4>
                                 <div class="code-block mt-2">
-                                    <code class="text-green-400">docker-compose exec app php artisan test</code>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start space-x-4">
-                            <div class="bg-success text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0">3</div>
-                            <div>
-                                <h4 class="font-semibold">Testes Específicos</h4>
-                                <div class="code-block mt-2">
-                                    <code class="text-green-400"># Testes de API</code><br>
-                                    <code class="text-green-400">docker-compose exec app php artisan test --filter UserApiTest</code><br>
-                                    <code class="text-green-400"># Testes de Serviço</code><br>
-                                    <code class="text-green-400">docker-compose exec app php artisan test --filter UserServiceTest</code>
+                                    <code class="text-green-400">docker-compose exec app php artisan test --env=testing</code>
                                 </div>
                             </div>
                         </div>
