@@ -12,22 +12,6 @@ Sistema completo para **gerenciamento de usuários, posts e tags**, com arquitet
 
 ---
 
-## 📚 Sumário
-
-- [Arquitetura do Projeto](#-arquitetura-do-projeto)
-- [Tecnologias Utilizadas](#-tecnologias-utilizadas)
-- [Estrutura do Banco de Dados](#-estrutura-do-banco-de-dados)
-- [Início Rápido](#-início-rápido)
-  - [Pré-requisitos](#-pré-requisitos)
-  - [Passos para Configuração do Ambiente](#-passos-para-configuração-do-ambiente)
-  - [URL Inicial da Aplicação](#-url-inicial-da-aplicação)
-- [Configuração de Testes Automatizados](#-configuração-de-testes-automatizados)
-- [Estrutura de Pastas](#-estrutura-de-pastas)
-- [Licença](#-licença)
-- [Contato](#-contato)
-
----
-
 ## 🧱 Arquitetura do Projeto
 
 O projeto segue uma **arquitetura em camadas**, organizada para facilitar manutenção, escalabilidade e testes:
