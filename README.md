@@ -55,17 +55,12 @@ docker-compose down --remove-orphans
 docker-compose up -d
 
 #### 3. Instalação e Configuração da Aplicação
-
-```bash
 docker-compose exec app composer install
 ##### 3.1. Configurar .env
-```bash
 cp .env.example .env
 ##### 3.2. Gerar API Key
-```bash
 docker-compose exec app php artisan key:generate
 ##### 3.3. Executar as Migrations
-```bash
 docker-compose exec app php artisan migrate
 
 #### 4. Verificação
