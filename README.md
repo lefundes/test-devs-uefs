@@ -100,6 +100,8 @@ cd test-devs-uefs
 ```bash
 docker-compose build --no-cache
 docker rm -f $(docker ps -aq)
+docker-compose down
+docker volume rm test-devs-uefs_postgres_data
 docker rm -f uefs-netra-nginx
 docker-compose down --remove-orphans
 docker-compose up -d
