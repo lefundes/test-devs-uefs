@@ -43,7 +43,7 @@ O projeto segue uma **arquitetura em camadas**, organizada para facilitar manute
 #### 1. Clone e Acesse o Projeto
 ```bash
 git clone https://github.com/lefundes/test-devs-uefs.git
-cd uefs-netra
+cd test-devs-uefs
 ````
 
 #### 2. Build e Execução dos Containers
