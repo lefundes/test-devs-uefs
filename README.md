@@ -38,13 +38,12 @@ O projeto segue uma **arquitetura em camadas**, organizada para facilitar manute
 - [Git](https://git-scm.com/) para clonar o repositório
 - Pelo menos **4 GB de RAM** disponível
 
-### ⚡ Passos para Configuração do Ambiente
+### Passos para Configuração do Ambiente
 
 #### 1. Clone e Acesse o Projeto
 ```bash
 git clone https://github.com/lefundes/test-devs-uefs.git
 cd test-devs-uefs
-````
 
 #### 2. Build e Execução dos Containers
 
@@ -54,16 +53,15 @@ docker rm -f $(docker ps -aq)
 docker rm -f uefs-netra-nginx
 docker-compose down --remove-orphans
 docker-compose up -d
-```
 
 #### 3. Instalação e Configuração da Aplicação
 
 ```bash
 docker-compose exec app composer install
-##### 3.1 Configurar .env
+##### 3.1. Configurar .env
 ```bash
 cp .env.example .env
-##### 3.2 Gerar API Key
+##### 3.2. Gerar API Key
 ```bash
 docker-compose exec app php artisan key:generate
 ##### 3.3. Executar as Migrations
@@ -76,7 +74,7 @@ Verifique os containers ativos:
 
 ```bash
 docker-compose ps
-```
+
 
 ## URL Inicial e Teste da Aplicação
 
