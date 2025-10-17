@@ -1,7 +1,5 @@
 @extends('layouts.app')
 
-@section('title', 'Dashboard')
-
 @section('content')
 <div class="mb-8">
     <h3 class="text-2xl font-bold text-gray-800 mb-2">Visão Geral do Sistema</h3>

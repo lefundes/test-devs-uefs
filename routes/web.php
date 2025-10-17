@@ -14,10 +14,15 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 Route::get('/readme', [DashboardController::class, 'readme'])->name('readme');
 
 // Users Routes
-Route::resource('users', UserController::class);
+Route::get('/users', [UserController::class, 'index'])->name('web.users.index');
+Route::get('/users/create', [UserController::class, 'create'])->name('web.users.create');
+Route::post('/users', [UserController::class, 'store'])->name('web.users.store');
 
-// Posts Routes  
-Route::resource('posts', PostController::class);
+// ROTA ESPECÍFICA DEVE VIR ANTES DA ROTA COM PARÂMETRO
+Route::get('/users/datatable', [UserController::class, 'datatable'])->name('web.users.datatable');
 
-// Tags Routes
-Route::resource('tags', TagController::class);
+// Rotas com parâmetros DEVEM VIR DEPOIS das rotas específicas
+Route::get('/users/{user}', [UserController::class, 'show'])->name('web.users.show');
+Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('web.users.edit');
+Route::put('/users/{user}', [UserController::class, 'update'])->name('web.users.update');
+Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('web.users.destroy');
