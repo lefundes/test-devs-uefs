@@ -1,18 +1,11 @@
 ````markdown
-# 🧭 UEFS Netra — API RESTful
-
-[![PHP](https://img.shields.io/badge/PHP-8.2-blue.svg)](https://www.php.net/)
-[![Laravel](https://img.shields.io/badge/Laravel-10.x-red.svg)](https://laravel.com)
-[![Docker](https://img.shields.io/badge/Docker-Ready-blue.svg)](https://www.docker.com/)
-[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-informational.svg)](https://www.postgresql.org/)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-
-**API RESTful** desenvolvida como parte do teste técnico para a vaga de Engenheiro de Software no projeto **UEFS - NETRA**.  
+# UEFS Netra — API RESTful
+API RESTful desenvolvida como parte do teste técnico para a vaga de Engenheiro de Software no projeto **UEFS - NETRA**.  
 Sistema completo para **gerenciamento de usuários, posts e tags**, com arquitetura em camadas, testes automatizados e ambiente multi-contêiner Docker.
 
 ---
 
-## 🧱 Arquitetura do Projeto
+## Arquitetura do Projeto
 
 O projeto segue uma **arquitetura em camadas**, organizada para facilitar manutenção, escalabilidade e testes:
 
@@ -24,7 +17,7 @@ O projeto segue uma **arquitetura em camadas**, organizada para facilitar manute
 
 ---
 
-## 🧰 Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 - **Linguagem:** PHP 8.4.12  
 - **Framework:** Laravel Framework 12.34.0  
@@ -37,7 +30,7 @@ O projeto segue uma **arquitetura em camadas**, organizada para facilitar manute
 
 ---
 
-## 🗃️ Estrutura do Banco de Dados
+## Estrutura do Banco de Dados
 
 - `users` — Tabela de usuários  
 - `posts` — Tabela de posts  
@@ -46,9 +39,9 @@ O projeto segue uma **arquitetura em camadas**, organizada para facilitar manute
 
 ---
 
-## 🚀 Início Rápido
+## Início Rápido
 
-### ✅ Pré-requisitos
+### Pré-requisitos
 
 - [Docker](https://docs.docker.com/get-docker/) e [Docker Compose](https://docs.docker.com/compose/install/)
 - [Git](https://git-scm.com/) para clonar o repositório
@@ -89,7 +82,7 @@ docker-compose ps
 
 ---
 
-## 🌐 URL Inicial e Teste da Aplicação
+## URL Inicial e Teste da Aplicação
 
 Após a configuração, a aplicação estará disponível em:
 
@@ -97,19 +90,19 @@ Após a configuração, a aplicação estará disponível em:
 http://localhost:8000
 ```
 
-📄 **Observação:** A documentação completa da API será acessível após a configuração básica do ambiente.
+Observação: A documentação completa da API será acessível após a configuração básica do ambiente.
 
 ---
 
-## 🧪 Configuração de Testes Automatizados
+## Configuração de Testes Automatizados
 
-⚠️ **Importante:**
+Importante:
 O Laravel, por padrão, executa os testes com **SQLite**, porém esta aplicação utiliza **PostgreSQL** com **SEQUENCES explícitas** nas migrations, o que não é suportado pelo SQLite.
 Por isso, os testes estão configurados para rodar diretamente em PostgreSQL.
 
 ---
 
-### 🐘 Configuração do Banco de Testes
+### Configuração do Banco de Testes
 
 #### 1. Acessar o PostgreSQL
 
@@ -136,7 +129,7 @@ DB_PASSWORD=uefs_password
 
 ---
 
-## 🧭 Execução de Testes
+## Execução de Testes
 
 #### 1. Executar Migrations de Teste
 
@@ -162,7 +155,7 @@ docker-compose exec app php artisan test --filter UserServiceTest
 
 ---
 
-## 🧱 Estrutura de Pastas
+## Estrutura de Pastas
 
 ```
 ├── app
