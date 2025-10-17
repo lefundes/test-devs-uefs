@@ -14,9 +14,9 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 Route::get('/readme', [DashboardController::class, 'readme'])->name('readme');
 
 // Users Routes
-Route::get('/users', [UserController::class, 'index'])->name('web.users.index');
+Route::get('/users/list', [UserController::class, 'index'])->name('web.users.index');
 Route::get('/users/create', [UserController::class, 'create'])->name('web.users.create');
-Route::post('/users', [UserController::class, 'store'])->name('web.users.store');
+Route::post('/users/store', [UserController::class, 'store'])->name('web.users.store');
 
 // ROTA ESPECÍFICA DEVE VIR ANTES DA ROTA COM PARÂMETRO
 Route::get('/users/datatable', [UserController::class, 'datatable'])->name('web.users.datatable');
