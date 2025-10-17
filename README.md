@@ -143,17 +143,7 @@ docker-compose exec app php artisan migrate --env=testing
 docker-compose exec app php artisan test --env=testing
 ```
 
-#### 3. Executar Testes Específicos
-
-```bash
-# Testes de API
-docker-compose exec app php artisan test --filter UserApiTest
-
-# Testes de Serviço
-docker-compose exec app php artisan test --filter UserServiceTest
-```
-
-## Estrutura de Pastas
+## Estrutura de Diretórios da Aplicação
 
 ```
 ├── app
