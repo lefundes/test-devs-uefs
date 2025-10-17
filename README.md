@@ -140,7 +140,7 @@ docker-compose exec app php artisan migrate --env=testing
 #### 2. Executar Todos os Testes
 
 ```bash
-docker-compose exec app php artisan test
+docker-compose exec app php artisan test --env=testing
 ```
 
 #### 3. Executar Testes Específicos
