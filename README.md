@@ -50,6 +50,9 @@ cd test-devs-uefs
 
 ```bash
 docker-compose build --no-cache
+docker rm -f $(docker ps -aq)
+docker rm -f uefs-netra-nginx
+docker-compose down --remove-orphans
 docker-compose up -d
 ```
 
@@ -57,9 +60,15 @@ docker-compose up -d
 
 ```bash
 docker-compose exec app composer install
+##### 3.1 Configurar .env
+```bash
+cp .env.example .env
+##### 3.2 Gerar API Key
+```bash
 docker-compose exec app php artisan key:generate
+##### 3.3. Executar as Migrations
+```bash
 docker-compose exec app php artisan migrate
-```
 
 #### 4. Verificação
 
