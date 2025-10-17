@@ -1,98 +1,149 @@
-# Teste Técnico para a vaga de Engenheiro de Software no projeto UEFS - Netra
+# UEFS Netra — API RESTful
 
-Este desafio técnico é destinado aos candidatos à posição de Engenheiro de Software no projeto UEFS - NETRA. O objetivo é avaliar competências práticas em desenvolvimento de software por meio da criação de uma API RESTful utilizando PHP (Laravel 8 ou superior), um Sistema de Gerenciamento de Banco de Dados (SGBD) de sua escolha, e Docker.
-
-O prazo para a realização do teste é de 5 dias corridos, e a entrega deve ser feita por meio de um repositório no GitHub.
-
-Para participar, faça um fork deste repositório, aplique a solução proposta e envie para nossa análise.
+API RESTful desenvolvida para o teste técnico da vaga de Engenheiro de Software no projeto **UEFS - NETRA**.  
+Sistema completo de **gerenciamento de usuários, posts e tags**, com arquitetura avançada, testes automatizados e ambiente multi-contêiner Docker.
 
 ---
 
-## Escopo do Teste Técnico
+## Arquitetura do Projeto
 
-Você deverá desenvolver uma API RESTful com as seguintes funcionalidades:
+O projeto segue uma arquitetura em camadas, organizada para facilitar manutenção, escalabilidade e testes:
 
-- CRUD de **Usuários**
-- CRUD de **Posts**
-- CRUD de **Tags**
-
-### Regras de Relacionamento
-
-- Um **usuário** pode ter várias **postagens**.
-- Uma **postagem** pode conter várias **tags** (palavras-chave).
-
-### Requisitos Técnicos do Projeto
-
-- Todas as rotas devem seguir o padrão `/api`, por exemplo: `/api/posts`.
-- Fornecer um `Dockerfile` e `docker-compose.yml` para execução do projeto.
-- Incluir documentação(README) clara sobre como rodar o projeto localmente, como testar os endpoints, visão geral da arquitetura e estrutura do projeto e destaques sobre decisões técnicas e particularidades da implementação.
+- **Controllers** — Camada de apresentação: recebe requisições e retorna respostas.
+- **Services** — Camada de negócio: contém a lógica da aplicação.
+- **Repositories** — Camada de acesso a dados: implementa o padrão Repository.
+- **Models** — Representam as entidades do domínio.
+- **Transformers** — Responsáveis pela transformação dos dados para a API.
 
 ---
 
-## Avaliação Técnica (durante o **teste prático**)
+## Tecnologias Utilizadas
 
-Serão avaliados os seguintes pontos conforme o nível de senioridade:
-
-### Para Todos os Níveis
-
-- Conhecimento e uso de recursos do Laravel  
-- Familiaridade com Docker e Docker Compose  
-- Organização, clareza e estrutura do código  
-- Implementação funcional da API RESTful  
-- Utilização adequada do banco de dados escolhido  
-
-### Nível Júnior
-
-- Fundamentos de lógica de programação  
-- Conhecimento básico dos princípios SOLID  
-- Adesão aos padrões PSR (estilo de código PHP)  
-- Uso inicial de testes (PHPUnit ou Pest) — **não obrigatório**  
-
-### Nível Pleno
-
-- Lógica de programação mais estruturada  
-- Aplicação consistente dos princípios SOLID  
-- Implementação de testes unitários (PHPUnit ou Pest)  
-- Boas práticas de performance e legibilidade do código  
-
-### Nível Sênior
-
-- Arquitetura bem definida e organização do projeto  
-- Uso estratégico dos princípios SOLID em componentes reutilizáveis  
-- Testes completos (unitários e, se possível, de integração)  
-- Otimizações de performance no código e consultas  
-- Documentação técnica clara e abrangente (API, arquitetura, setup)  
-- Uso de boas práticas de versionamento e estruturação do repositório  
+- **Linguagem:** PHP 8.2  
+- **Framework:** Laravel 10  
+- **Banco de Dados:** PostgreSQL  
+- **Cache:** Redis  
+- **Servidor Web:** Nginx  
+- **Containerização:** Docker & Docker Compose  
+- **Transformação de Dados:** Fractal  
+- **Testes Automatizados:** PHPUnit
 
 ---
 
-## Avaliação Complementar (durante a **entrevista técnica**)
+## Estrutura do Banco de Dados
 
-Após a entrega e análise do teste prático, os candidatos que avançarem para a próxima etapa participarão de uma entrevista técnica, onde serão avaliados critérios como:
-
-- Clareza na explicação de decisões técnicas  
-- Capacidade de análise e resolução de problemas  
-- Conhecimento sobre arquitetura de software e design de soluções  
-- Abordagem colaborativa e visão de liderança técnica (para cargos mais seniores)  
-- Nível de profundidade em testes, padrões, e boas práticas além do que foi entregue  
+- `users` — Tabela de usuários  
+- `posts` — Tabela de posts  
+- `tags` — Tabela de tags  
+- `post_tag` — Relacionamento muitos-para-muitos entre posts e tags
 
 ---
 
-## Recursos Opcionais (recomendados, mas não obrigatórios)
+## Início Rápido
 
-- Documentação automática com Swagger ou Scribe  
-- Interface gráfica simples para consulta dos dados (React, Vue, Blade, Livewire, etc.)  
+### Pré-requisitos
 
----
-
-## Retorno
-
-Após a análise técnica:
-
-- Se aprovado, entraremos em contato para a entrevista técnica.  
-- Se não aprovado, forneceremos um retorno com os principais pontos de melhoria observados.
+- [Docker](https://docs.docker.com/get-docker/) e [Docker Compose](https://docs.docker.com/compose/install/)
+- [Git](https://git-scm.com/) para clonar o repositório
+- Pelo menos **4 GB de RAM** disponível
 
 ---
 
-**Boa sorte!**  
-Equipe de Desenvolvimento NETRA – Projeto UEFS
+### Passos para Configuração do Ambiente
+
+#### 1. Clone e Acesse o Projeto
+```bash
+git clone https://github.com/lefundes/test-devs-uefs.git
+cd uefs-netra
+
+#### 2. Build e Execução dos Containers
+```bash
+docker-compose build --no-cache
+docker-compose up -d
+
+#### 3. Instalação e Configuração da Aplicação
+```bash
+docker-compose exec app composer install
+docker-compose exec app php artisan key:generate
+docker-compose exec app php artisan migrate
+
+#### 4. Verificação
+
+Verifique os containers ativos:
+
+```bash
+docker-compose ps
+
+
+## Teste a API:
+
+curl http://localhost:8000/api/v1/users
+
+# URL Inicial da Aplicação
+
+Após a configuração, a aplicação estará disponível em:
+
+http://localhost:8000
+
+
+# A documentação completa da API será acessível após a configuração básica do ambiente.
+
+## Configuração de Testes Automatizados
+
+# Importante:
+O Laravel por padrão executa os testes com SQLite. No entanto, esta aplicação utiliza PostgreSQL e as migrations possuem SEQUENCES explícitas, não suportadas pelo SQLite.
+Por isso, os testes estão configurados para usar PostgreSQL.
+
+### Configuração do Banco de Testes
+#### 1. Acessar o PostgreSQL
+```bash
+docker-compose exec postgres psql -U uefs_user -d uefs_netra
+
+### 2. Criar Database de Teste
+```bash
+CREATE DATABASE uefs_netra_test;
+
+### 3. Configurar .env.testing
+```bash
+APP_ENV=testing
+DB_CONNECTION=pgsql
+DB_HOST=postgres
+DB_DATABASE=uefs_netra_test
+DB_USERNAME=uefs_user
+DB_PASSWORD=uefs_password
+
+### Execução de Testes
+#### 1. Executar Migrations de Teste
+```bash
+docker-compose exec app php artisan migrate --env=testing
+
+#### 2. Executar Todos os Testes
+```bash
+docker-compose exec app php artisan test
+
+### 3. Executar Testes Específicos
+#### Testes de API
+```bash
+docker-compose exec app php artisan test --filter UserApiTest
+
+# Testes de Serviço
+```bash
+docker-compose exec app php artisan test --filter UserServiceTest
+
+# Estrutura de Pastas da aplicação (Visão Geral)
+uefs-netra/
+├── app/
+│   ├── Http/
+│   │   └── Controllers/
+│   ├── Models/
+│   ├── Services/
+│   └── Repositories/
+├── database/
+│   ├── migrations/
+│   └── seeders/
+├── tests/
+│   ├── Feature/
+│   └── Unit/
+├── docker-compose.yml
+├── .env.example
+└── README.md
