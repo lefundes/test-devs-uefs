@@ -1,9 +1,6 @@
-````markdown
 # UEFS Netra — API RESTful
 API RESTful desenvolvida como parte do teste técnico para a vaga de Engenheiro de Software no projeto **UEFS - NETRA**.  
 Sistema completo para **gerenciamento de usuários, posts e tags**, com arquitetura em camadas, testes automatizados e ambiente multi-contêiner Docker.
-
----
 
 ## Arquitetura do Projeto
 
@@ -14,8 +11,6 @@ O projeto segue uma **arquitetura em camadas**, organizada para facilitar manute
 - **Repositories** — Acesso a dados, implementando o *Repository Pattern*.  
 - **Models** — Entidades do domínio.  
 - **Transformers** — Transformam dados para resposta da API.
-
----
 
 ## Tecnologias Utilizadas
 
@@ -28,16 +23,12 @@ O projeto segue uma **arquitetura em camadas**, organizada para facilitar manute
 - **Transformação de Dados:** Fractal  
 - **Testes Automatizados:** PHPUnit
 
----
-
 ## Estrutura do Banco de Dados
 
 - `users` — Tabela de usuários  
 - `posts` — Tabela de posts  
 - `tags` — Tabela de tags  
 - `post_tag` — Relacionamento muitos-para-muitos entre posts e tags
-
----
 
 ## Início Rápido
 
@@ -46,8 +37,6 @@ O projeto segue uma **arquitetura em camadas**, organizada para facilitar manute
 - [Docker](https://docs.docker.com/get-docker/) e [Docker Compose](https://docs.docker.com/compose/install/)
 - [Git](https://git-scm.com/) para clonar o repositório
 - Pelo menos **4 GB de RAM** disponível
-
----
 
 ### ⚡ Passos para Configuração do Ambiente
 
@@ -80,8 +69,6 @@ Verifique os containers ativos:
 docker-compose ps
 ```
 
----
-
 ## URL Inicial e Teste da Aplicação
 
 Após a configuração, a aplicação estará disponível em:
@@ -92,15 +79,11 @@ http://localhost:8000
 
 Observação: A documentação completa da API será acessível após a configuração básica do ambiente.
 
----
-
 ## Configuração de Testes Automatizados
 
 Importante:
 O Laravel, por padrão, executa os testes com **SQLite**, porém esta aplicação utiliza **PostgreSQL** com **SEQUENCES explícitas** nas migrations, o que não é suportado pelo SQLite.
 Por isso, os testes estão configurados para rodar diretamente em PostgreSQL.
-
----
 
 ### Configuração do Banco de Testes
 
@@ -127,8 +110,6 @@ DB_USERNAME=uefs_user
 DB_PASSWORD=uefs_password
 ```
 
----
-
 ## Execução de Testes
 
 #### 1. Executar Migrations de Teste
@@ -152,8 +133,6 @@ docker-compose exec app php artisan test --filter UserApiTest
 # Testes de Serviço
 docker-compose exec app php artisan test --filter UserServiceTest
 ```
-
----
 
 ## Estrutura de Pastas
 
